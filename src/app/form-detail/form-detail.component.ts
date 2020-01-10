@@ -8,7 +8,7 @@ import { ICheckObject,ISelectObject } from '../IObject'
 export class FormDetailComponent implements OnInit {
   @Input() selectRadio:string="male"
   @Input() selectOptionValue:string="Friday";
-  @Input() selectOptionObject:ISelectObject;
+  // @Input() selectOptionObject:ISelectObject;
   @Input() interests1:ICheckObject[];
   constructor() { }
 

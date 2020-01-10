@@ -1,6 +1,7 @@
 export interface ISelectObject {
     id:number,
-    day:string
+    day:string,
+    isSelect:boolean
 }
 
 export interface ICheckObject{

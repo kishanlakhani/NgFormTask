@@ -26,18 +26,23 @@
 
 <hr>
 
+
  <div>
 <h2>Select drop down with object</h2>
 <select name="" id="" (change)="onSelctObject($event)" [selectedIndex]="selectedIndex1">
     <option value="" disabled>
         --select--
     </option>
-<option *ngFor="let item of selectArray" value="{{item}}">
-        {{ item }}
+<option *ngFor="let item of selectArray1" value="{{item}}">
+        {{ item.day }}
     </option>
 </select>
+
 <h2>Id is :{{ selectOptionObject.id}} and day : {{ selectOptionObject.day }}</h2>
 </div>
+
+
+
 
 
 <hr>
@@ -57,7 +62,7 @@
 
 <h2>checkbox array object</h2>
 <label *ngFor="let interest of interests1" for="">
-<input type="checkbox" name="interestCheckBox" [checked]="interest.name==='3D printing'?true:false" (change)="checkBox1($event)" value="{{interest.name}}" id="">{{interest.name}} <br>
+<input type="checkbox" name="interestCheckBox" [checked]="interest.name==='3D printing'?true:false" (change)="checkBox1($event,interest)" value="{{interest.name}}" id="">{{interest.name}} <br>
 </label>
 
 <app-form-detail [interests1]="interests1"></app-form-detail> 

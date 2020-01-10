@@ -31,11 +31,24 @@ export class FormComponent implements OnInit {
     'Saturday'
   ];
 
+
+  selectArray1:ISelectObject[] = this.selectArray.map((item,index)=>{
+    if(index+1 === this.selectedIndex){
+      return { id:index , day:item , isSelect:true };
+
+    }
+    return { id:index , day:item , isSelect:false };
+  });
+  
+
   selectedIndex1:number=6;
-  selectOptionObject:ISelectObject ={
+  selectOptionObject ={
     id:this.selectedIndex,
     day:this.selectArray[this.selectedIndex1-1]
   };
+
+
+
 
     // checkbx 
     interests:string[]=[
@@ -50,14 +63,23 @@ export class FormComponent implements OnInit {
     preChecked:boolean = false;
 
 
-    interests1:ICheckObject[]=[
-      {id:1,name:'3D printing',isChecked:true},
-      {id:2,name:'Amateur radio',isChecked:false},
-      {id:3,name:'Scrapbook',isChecked:false},
-      {id:4,name:'Acting',isChecked:false},
-      {id:5,name:'Baton twirling',isChecked:false}
-    ];
     
+    // interests1:ICheckObject[]=[
+    //   {id:1,name:'3D printing',isChecked:true},
+    //   {id:2,name:'Amateur radio',isChecked:false},
+    //   {id:3,name:'Scrapbook',isChecked:false},
+    //   {id:4,name:'Acting',isChecked:false},
+    //   {id:5,name:'Baton twirling',isChecked:false}
+    // ];
+    
+    interests1:ICheckObject[] = this.interests.map((item,index)=>{
+      if(index === 0){
+        return { id: index, name:item, isChecked:true }
+
+      }
+      return { id: index, name:item, isChecked:false }
+
+    })
   
 
   radioClick(event){
@@ -67,10 +89,8 @@ export class FormComponent implements OnInit {
   }
 
 
-
-
   selectOptionValue:string= this.selectArray[this.selectedIndex-1];
-
+  
   
   onSelct(event){
     console.log(event);
@@ -81,11 +101,24 @@ export class FormComponent implements OnInit {
   }
 
   onSelctObject(event){
+    // selectArray1
+    // console.log(event);
     this.selectedIndex1=event.srcElement.options.selectedIndex;
     this.selectOptionObject={
       id:this.selectedIndex1,
       day:this.selectArray[this.selectedIndex1-1]
     }
+    console.log(this.selectOptionObject);
+    // console.log(event.target.options[event.target.options.selectedIndex].value);
+    // this.selectArray1.map(item=>{
+    //   if(item.day === event.target.value ){
+    //     item.isSelect = true;
+    //   }else{
+    //     item.isSelect = false;
+    //   }
+    // })
+    // console.log(this.selectArray1);
+
   }
 
 
@@ -107,20 +140,18 @@ export class FormComponent implements OnInit {
     console.log(this.selectInterest)
   }
 
-
-  checkBox1(event){
-      this.interests1.find(item => {
-      if(item.name === event.target.value){
-        return item.isChecked = !item.isChecked;
-      } 
-    })
+  checkBox1(event,obj:ICheckObject){
+      // this.interests1.find(item => {
+      // if(item.name === event.target.value){
+      //   return item.isChecked = !item.isChecked;
+      // } 
+    // })
+    console.log(obj)
+    obj["isChecked"]=!obj["isChecked"];
     console.log(this.interests1)
     // console.log(this.interests1);
     // console.log(event);
   }
 
   
-
-
-
 }

@@ -1,0 +1,68 @@
+<h1>Form event and property</h1>
+<hr>
+<hr>
+<h2>Radio button change event</h2>
+<input type="radio" name="gender" value="male" id="" [checked]="isRadioSelect" (change)="radioClick($event)" >Male 
+<input type="radio" name="gender" value="female" id="" (change)="radioClick($event)" >Female
+<h2 [ngClass]="selectRadio=='male'?'green':'pink'" [ngStyle]="{'color': selectRadio=== 'male' ? 'white' : 'red' }" > Gender : {{selectRadio}}</h2>
+
+<hr>
+<hr>
+
+
+
+<div>
+<h2>Select drop down</h2>
+<select name="" id="" (change)="onSelct($event)" [selectedIndex]="selectedIndex">
+    <option value="" disabled>
+        --select--
+    </option>
+<option *ngFor="let item of selectArray" value="{{item}">
+        {{ item }}
+    </option>
+</select>
+<h2>You choose : {{selectArray[selectedIndex-1]}}</h2>
+</div>
+
+<hr>
+
+ <div>
+<h2>Select drop down with object</h2>
+<select name="" id="" (change)="onSelctObject($event)" [selectedIndex]="selectedIndex1">
+    <option value="" disabled>
+        --select--
+    </option>
+<option *ngFor="let item of selectArray" value="{{item}}">
+        {{ item }}
+    </option>
+</select>
+<h2>Id is :{{ selectOptionObject.id}} and day : {{ selectOptionObject.day }}</h2>
+</div>
+
+
+<hr>
+<hr>
+
+
+ <h2>checkbox array</h2>
+<label *ngFor="let interest of interests" for="">
+<input type="checkbox" name="interestCheckBox" (change)="checkBox($event)" [checked]="interest==='3D printing'?true:false" value="{{interest}}" id="">{{interest}} <br>
+</label>
+
+<h2 *ngIf="selectInterest">
+    <span *ngFor="let item of selectInterest">{{ item }} <br></span>    
+</h2> 
+
+<hr>
+
+<h2>checkbox array object</h2>
+<label *ngFor="let interest of interests1" for="">
+<input type="checkbox" name="interestCheckBox" [checked]="interest.name==='3D printing'?true:false" (change)="checkBox1($event)" value="{{interest.name}}" id="">{{interest.name}} <br>
+</label>
+
+<app-form-detail [interests1]="interests1"></app-form-detail> 
+
+
+<hr><hr><hr>
+
+<hr><hr>

@@ -1,0 +1,10 @@
+<!-- <h2 [ngClass]="selectRadio=='male'?'green':'pink'" [ngStyle]="{'color': selectRadio=== 'male' ? 'white' : 'red' }" > Gender : {{selectRadio}}</h2> -->
+
+<!-- <h2>from chile pass object ::: id is :: {{selectOptionObject.id}}  and name is ::: {{selectOptionObject.day}}</h2> -->
+<!-- <p>{{selectOptionValue}}</p> -->
+
+<div *ngFor="let item of interests1">
+<h2 *ngIf="item.isChecked === true">
+    id :: {{ item.id }} and interest :: {{ item.name }}
+ </h2>
+</div>
